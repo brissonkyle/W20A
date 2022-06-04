@@ -3,7 +3,7 @@ import mariadb
 
 conn=None
 cursor=None
-
+# Completed
 conn = mariadb.connect(
                         user=dbcreds.user,
                         password=dbcreds.password, 
@@ -39,7 +39,9 @@ while True:
         print('See ALL posts! ')
         cursor.execute('SELECT content FROM blog_post')
         allPosts = cursor.fetchall()
+        conn.close()
         # print('Here are some POSTS : {}'.format(allPosts))
         # exit()
     else :
         exit()
+conn.close()
